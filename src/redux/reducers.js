@@ -9,10 +9,8 @@ const contactsInitialState = {
 
 const items = createReducer(contactsInitialState.items, {
     [addContact]: (state, { payload }) => {
-        const nameArray = state.map(item => {
-            return item.name;
-        });
-        if (nameArray.includes(payload.name)) {
+        const namesArray = state.map(item => item.name);
+        if (namesArray.includes(payload.name)) {
             window.alert(`${payload.name} is already in contacts`);
             return state;
         } else {
